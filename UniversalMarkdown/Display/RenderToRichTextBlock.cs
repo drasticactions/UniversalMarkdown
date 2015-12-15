@@ -29,6 +29,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace UniversalMarkdown.Display
 {
@@ -125,6 +126,9 @@ namespace UniversalMarkdown.Display
                     break;
                 case MarkdownInlineType.RawSubreddit:
                     RenderRawSubreddit((RawSubredditInline)element, currentInlines, ref trimTextStart);
+                    break;
+                case MarkdownInlineType.Image:
+                    RenderImage((ImageInline)element, currentInlines, ref trimTextStart);
                     break;
             }
         }
@@ -412,6 +416,38 @@ namespace UniversalMarkdown.Display
 
             // Add it to the current inlines
             currentInlines.Add(link);
+        }
+
+        /// <summary>
+        /// Renders a link element
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="currentInlines"></param>
+        /// <param name="trimTextStart">If true this element should trin the start of the text and set to fales.</param>
+        private void RenderImage(ImageInline element, InlineCollection currentInlines, ref bool trimTextStart)
+        {
+            Image image = new Image {Source = new BitmapImage(new Uri(element.Url))};
+
+            // TODO: Images in the grid will match the size of the container. So if you have a small image, it will expand. Need to come up with a way to handle that.
+
+            //image.Loaded += delegate(object sender, RoutedEventArgs args)
+            //{
+            //    if (image.Source != null)
+            //    {
+            //        var bitmapImage = (BitmapImage) image.Source;
+            //        image.Height = bitmapImage.PixelHeight;
+            //        image.Width = bitmapImage.PixelWidth;
+            //    }
+            //};
+
+            InlineUIContainer uiConainter = new InlineUIContainer();
+            Grid grid = new Grid();
+            grid.Children.Add(image);
+
+            uiConainter.Child = grid;
+
+            // Add it to the current inlines
+            currentInlines.Add(uiConainter);
         }
 
         /// <summary>

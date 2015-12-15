@@ -122,6 +122,7 @@
     <Compile Include="Parse\Blocks\ListElementBlock.cs" />
     <Compile Include="Parse\Blocks\HorizontalRuleBlock.cs" />
     <Compile Include="Parse\Blocks\QuoteBlock.cs" />
+    <Compile Include="Parse\Inlines\ImageInline.cs" />
     <Compile Include="Parse\Inlines\RawHyperlinkInline.cs" />
     <Compile Include="Parse\Inlines\RawSubredditInline.cs" />
     <Compile Include="Parse\Inlines\MarkdownLinkInline.cs" />

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalMarkdownTestApp", "UniversalMarkdownTestApp\UniversalMarkdownTestApp.csproj", "{E931F68D-FCC8-4E6F-A718-379672D533CD}"
 EndProject
@@ -22,6 +22,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E931F68D-FCC8-4E6F-A718-379672D533CD}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E931F68D-FCC8-4E6F-A718-379672D533CD}.Debug|Any CPU.Build.0 = Debug|x86
+		{E931F68D-FCC8-4E6F-A718-379672D533CD}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{E931F68D-FCC8-4E6F-A718-379672D533CD}.Debug|ARM.ActiveCfg = Debug|ARM
 		{E931F68D-FCC8-4E6F-A718-379672D533CD}.Debug|ARM.Build.0 = Debug|ARM
 		{E931F68D-FCC8-4E6F-A718-379672D533CD}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -58,6 +60,8 @@ Global
 		{9FFC3B68-696A-4342-A2B8-2EADDDEF7FF9}.Release|x86.ActiveCfg = Release|x86
 		{9FFC3B68-696A-4342-A2B8-2EADDDEF7FF9}.Release|x86.Build.0 = Release|x86
 		{519A9FE1-E530-4764-804E-A41F0D68D6B9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{519A9FE1-E530-4764-804E-A41F0D68D6B9}.Debug|Any CPU.Build.0 = Debug|x86
+		{519A9FE1-E530-4764-804E-A41F0D68D6B9}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{519A9FE1-E530-4764-804E-A41F0D68D6B9}.Debug|ARM.ActiveCfg = Debug|ARM
 		{519A9FE1-E530-4764-804E-A41F0D68D6B9}.Debug|ARM.Build.0 = Debug|ARM
 		{519A9FE1-E530-4764-804E-A41F0D68D6B9}.Debug|ARM.Deploy.0 = Debug|ARM

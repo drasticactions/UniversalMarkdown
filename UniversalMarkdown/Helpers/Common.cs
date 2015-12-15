@@ -58,6 +58,7 @@ namespace UniversalMarkdown.Helpers
                     s_tripCharList.Add(MarkdownLinkInline.GetTripChars());
                     s_tripCharList.Add(RawHyperlinkInline.GetTripChars());
                     s_tripCharList.Add(RawSubredditInline.GetTripChars());
+                    s_tripCharList.Add(ImageInline.GetTripChars());
                     // Text run doesn't have one.
                 }
             }
@@ -142,6 +143,12 @@ namespace UniversalMarkdown.Helpers
                                 if (RawSubredditInline.VerifyMatch(ref markdown, i, endingPos, ref nextElementStart, ref nextElementEnd))
                                 {
                                     return new RawSubredditInline();
+                                }
+                                break;
+                            case MarkdownInlineType.Image:
+                                if (ImageInline.VerifyMatch(ref markdown, i, endingPos, ref nextElementStart, ref nextElementEnd))
+                                {
+                                    return new ImageInline();
                                 }
                                 break;
                         }
