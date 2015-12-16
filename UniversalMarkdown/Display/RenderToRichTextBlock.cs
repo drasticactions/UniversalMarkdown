@@ -426,19 +426,19 @@ namespace UniversalMarkdown.Display
         /// <param name="trimTextStart">If true this element should trin the start of the text and set to fales.</param>
         private void RenderImage(ImageInline element, InlineCollection currentInlines, ref bool trimTextStart)
         {
-            Image image = new Image {Source = new BitmapImage(new Uri(element.Url))};
+            var bitmapSource = new BitmapImage(new Uri(element.Url));
+            Image image = new Image {Source = bitmapSource };
 
-            // TODO: Images in the grid will match the size of the container. So if you have a small image, it will expand. Need to come up with a way to handle that.
-
-            //image.Loaded += delegate(object sender, RoutedEventArgs args)
-            //{
-            //    if (image.Source != null)
-            //    {
-            //        var bitmapImage = (BitmapImage) image.Source;
-            //        image.Height = bitmapImage.PixelHeight;
-            //        image.Width = bitmapImage.PixelWidth;
-            //    }
-            //};
+            // After we have downloaded the image, set the width and height for it.
+            // Then set a max width and height so it does not totally blow up the other layouts.
+            bitmapSource.DownloadProgress += delegate(object sender, DownloadProgressEventArgs args)
+            {
+                if (args.Progress < 100) return;
+                image.Width = bitmapSource.PixelWidth;
+                image.Height = bitmapSource.PixelHeight;
+                image.MaxHeight = 500;
+                image.MaxWidth = 500;
+            };
 
             InlineUIContainer uiConainter = new InlineUIContainer();
             Grid grid = new Grid();
